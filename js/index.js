@@ -40,3 +40,119 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let nav = document.querySelector('nav');
+let cta = document.querySelector('.cta-text')
+let main = document.querySelector('.main-content')
+let contact1 = document.querySelector('.contact')
+let footer = document.querySelector('footer')
+
+function navSet (){
+  
+  
+  let navKeys = Object.keys(siteContent.nav);
+
+  let navValues = Object.values(siteContent.nav);
+  let i = 0;
+
+  for(i; i< navValues.length -1 ;i++){
+    let tag = nav.children[i];
+
+    tag.id = navKeys[i]
+    tag.textContent= navValues[i]
+    
+
+
+  }
+
+  
+}
+
+function ctaSet(){
+  let ctaKeys = Object.keys(siteContent.cta)
+  let ctaValues = Object.values(siteContent.cta)
+  
+  let ctaImg = document.getElementById('cta-img')
+  
+
+  let i = 0;
+
+  ctaImg.setAttribute('src', ctaValues[2] ) 
+
+  for(i; i < ctaValues.length -1   ; i++){
+    let tag = cta.children;
+
+    
+    tag[i].textContent= ctaValues[i]
+    
+
+
+  }
+  
+}
+
+function mainSet(){
+  const values = Object.values(siteContent["main-content"]);
+  const topCont = main.querySelector('.top-content');
+  const middleImg = main.querySelector('#middle-img');
+
+  const features = main.querySelector('#feat');
+  features.children[0].textContent = siteContent["main-content"]["features-h4"]
+  features.children[1].textContent = siteContent["main-content"]["features-content"]
+
+  const about = main.querySelector('#about')
+  about.children[0].textContent = siteContent["main-content"]["about-h4"]
+  about.children[1].textContent = siteContent["main-content"]["about-content"]
+
+  const services = main.querySelector('#services')
+  services.children[0].textContent = siteContent["main-content"]["services-h4"]
+  services.children[1].textContent = siteContent["main-content"]["services-content"]
+
+  const vision = main.querySelector('#vision')
+  vision.children[0].textContent = siteContent["main-content"]["vision-h4"]
+  vision.children[1].textContent = siteContent["main-content"]["vision-content"]
+
+
+ 
+
+
+  
+
+  middleImg.setAttribute('src',siteContent["main-content"]["middle-img-src"] );
+
+
+  
+
+
+
+  
+
+
+
+}
+
+function contactset (){
+  const values = Object.values(siteContent.contact);
+  
+
+  for(let i =0; i < contact1.childElementCount; i++){
+    contact1.children[i].textContent = values[i]
+  }
+
+
+
+}
+
+function footerSet (){
+  const values = Object.values(siteContent.footer)
+
+  footer.children[0].textContent = values[0]
+  
+
+}
+navSet()
+ctaSet()
+mainSet()
+contactset()
+footerSet()
+
